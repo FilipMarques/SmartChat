@@ -18,10 +18,7 @@ struct TabBarView: View {
             .tabItem {
                 Label("Chats", systemImage: "bubble.left.and.text.bubble.right.fill.rtl")
             }
-            NavigationStack {
-                Text("Profile")
-                    .navigationTitle("Profile")
-            }
+            ProfileView()
             .tabItem {
                 Label("Profile", systemImage: "person.fill")
             }
