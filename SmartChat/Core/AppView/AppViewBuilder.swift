@@ -1,3 +1,12 @@
+//
+//  AppViewBuilder.swift
+//  SmartChat
+//
+//  Created by Filipe Camargo Marques on 17/12/24.
+//
+
+import SwiftUI
+
 struct AppViewBuilder<TabbarView: View, OnboardingView: View>: View {
 
     var showTabBar: Bool = false
