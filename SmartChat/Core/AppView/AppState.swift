@@ -1,3 +1,11 @@
+//
+//  AppState.swift
+//  SmartChat
+//
+//  Created by Filipe Camargo Marques on 18/12/24.
+//
+import SwiftUI
+
 @Observable
 class AppState {
     private(set) var showTabBar: Bool {

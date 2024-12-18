@@ -13,7 +13,6 @@ struct ExploreView: View {
             Text("Explore")
                 .navigationTitle("Explore")
         }
-        
     }
 }
 

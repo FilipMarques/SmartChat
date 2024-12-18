@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct SettingsView: View {
+
+    @Environment(AppState.self) private var appState
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Button {
+                    onSignOutPressed()
+                } label: {
+                    Text("Sign Out")
+                }
+            }
+            .navigationTitle("Settings")
+        }
+    }
+
+    func onSignOutPressed() {
+        appState.updateViewState(showTabBarView: false)
     }
 }
 
 #Preview {
     SettingsView()
+        .environment(AppState())
 }
