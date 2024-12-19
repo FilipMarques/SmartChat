@@ -30,10 +30,10 @@ extension UserDefaults {
     }
     static var showTabbarview: Bool {
         get {
-            standard.bool(forKey: "showTabbarView")
+            standard.bool(forKey: Keys.showTabbarView)
         }
         set {
-            standard.set(newValue, forKey: "showTabbarView")
+            standard.set(newValue, forKey: Keys.showTabbarView)
         }
     }
 }
