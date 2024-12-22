@@ -11,27 +11,61 @@ struct OnboardingCompletedView: View {
 
     @Environment(AppState.self) private var root
 
-    var body: some View {
-        VStack {
-            Text("Onboarding")
-                .frame(maxHeight: .infinity)
+    @State private var isCompletingProfileSetup: Bool = false
 
-            Button {
-                onFinishButtonPressed()
-            } label: {
-                Text("Finish")
-                    .callToActionButton()
-            }
+    var selectedColor: Color = .orange
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Set up complete!")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .frame(maxHeight: .infinity)
+                .foregroundStyle(selectedColor)
+
+            Text("Set up your profile and you're ready to strat the chatting.")
+                .font(.title)
+                .fontWeight(.medium)
+                .foregroundStyle(.secondary)
         }
-        .padding(16)
+        .frame(maxHeight: .infinity)
+        .safeAreaInset(edge: .bottom, content: {
+            ctaButton
+        })
+        .padding(24)
+        .toolbar(.hidden, for: .navigationBar)
+    }
+
+    private var ctaButton: some View {
+        Button {
+            onFinishButtonPressed()
+        } label: {
+            ZStack {
+                if isCompletingProfileSetup {
+                    ProgressView()
+                        .tint(.white)
+                } else {
+                    Text("Finish")
+                }
+            }
+            .callToActionButton()
+        }
+        .disabled(isCompletingProfileSetup)
     }
 
     func onFinishButtonPressed() {
-        root.updateViewState(showTabBarView: true)
+        isCompletingProfileSetup = true
+        Task {
+            try await Task.sleep(for: .seconds(3))
+            isCompletingProfileSetup = false
+//            try await saveUserprofile(color: selectedColor)
+            root.updateViewState(showTabBarView: true)
+        }
+
     }
 }
 
 #Preview {
-    OnboardingCompletedView()
+    OnboardingCompletedView(selectedColor: .mint)
         .environment(AppState())
 }
