@@ -15,13 +15,13 @@ struct TabBarView: View {
                     Label("Explore", systemImage: "eyes")
                 }
             ChatsView()
-            .tabItem {
-                Label("Chats", systemImage: "bubble.left.and.text.bubble.right.fill.rtl")
-            }
+                .tabItem {
+                    Label("Chats", systemImage: "bubble.left.and.text.bubble.right.fill.rtl")
+                }
             ProfileView()
-            .tabItem {
-                Label("Profile", systemImage: "person.fill")
-            }
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
+                }
         }
     }
 }

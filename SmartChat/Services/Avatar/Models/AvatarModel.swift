@@ -40,7 +40,7 @@ struct AvatarModel: Hashable {
         AvatarDescriptionBuilder(avatar: self).characterDescription
     }
 
-    static var modk: AvatarModel {
+    static var mock: AvatarModel {
         mocks[0]
     }
 
@@ -115,7 +115,7 @@ struct AvatarDescriptionBuilder {
     }
 }
 
-enum CharacterOption: String {
+enum CharacterOption: String, CaseIterable, Hashable {
     case man, woman, alien, dog, cat
 
     static var `default`: Self {
