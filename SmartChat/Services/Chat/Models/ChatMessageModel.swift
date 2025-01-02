@@ -9,17 +9,31 @@ import Foundation
 
 struct ChatMessageModel {
     let id: String
-    let userId: String
-    let messageText: String
-    let dateCreated: Date
-    let seenByIds: [String]
+    let chatId: String
+    let authorId: String?
+    let content: String?
+    let seenByIds: [String]?
+    let dateCreated: Date?
 
-    init(id: String, userId: String, messageText: String, dateCreated: Date, seenByIds: [String]) {
+    init(
+        id: String,
+        chatId: String,
+        authorId: String? = nil,
+        content: String? = nil,
+        seenByIds: [String]? = nil,
+        dateCreated: Date? = nil
+    ) {
         self.id = id
-        self.userId = userId
-        self.messageText = messageText
-        self.dateCreated = dateCreated
+        self.chatId = chatId
+        self.authorId = authorId
+        self.content = content
         self.seenByIds = seenByIds
+        self.dateCreated = dateCreated
+    }
+
+    func hasBeenSeenBy(userId: String) -> Bool {
+        guard let seenByIds else { return false }
+        return seenByIds.contains(userId)
     }
 
     static var mock: ChatMessageModel {
@@ -30,38 +44,43 @@ struct ChatMessageModel {
         [
             ChatMessageModel(
                 id: "1",
-                userId: "user1",
-                messageText: "Hello, world!",
-                dateCreated: Date().adding(minutes: -10),
-                seenByIds: ["user2", "user3"]
+                chatId: "chat1",
+                authorId: "user1",
+                content: "Hello, world!",
+                seenByIds: ["user2", "user3"],
+                dateCreated: Date().adding(minutes: -10)
             ),
             ChatMessageModel(
                 id: "2",
-                userId: "user2",
-                messageText: "Hi there!",
-                dateCreated: Date().adding(minutes: -9),
-                seenByIds: ["user1"]
+                chatId: "chat1",
+                authorId: "user2",
+                content: "Hi there!",
+                seenByIds: ["user1"],
+                dateCreated: Date().adding(minutes: -9)
             ),
             ChatMessageModel(
                 id: "3",
-                userId: "user3",
-                messageText: "How's it going?",
-                dateCreated: Date().adding(minutes: -8),
-                seenByIds: ["user1", "user2"]
+                chatId: "chat1",
+                authorId: "user3",
+                content: "How's it going?",
+                seenByIds: ["user1", "user2"],
+                dateCreated: Date().adding(minutes: -8)
             ),
             ChatMessageModel(
                 id: "4",
-                userId: "user1",
-                messageText: "All good here!",
-                dateCreated: Date().adding(minutes: -7),
-                seenByIds: []
+                chatId: "chat1",
+                authorId: "user1",
+                content: "All good here!",
+                seenByIds: [],
+                dateCreated: Date().adding(minutes: -7)
             ),
             ChatMessageModel(
                 id: "5",
-                userId: "user2",
-                messageText: "Same here.",
-                dateCreated: Date().adding(minutes: -6),
-                seenByIds: ["user1", "user3"]
+                chatId: "chat1",
+                authorId: "user2",
+                content: "Same here.",
+                seenByIds: ["user1", "user3"],
+                dateCreated: Date().adding(minutes: -6)
             )
         ]
     }
