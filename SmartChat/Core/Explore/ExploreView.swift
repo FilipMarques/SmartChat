@@ -79,7 +79,7 @@ struct ExploreView: View {
                     title: avatar.name,
                     subtitle: avatar.characterDescription
                 )
-                .anyButton(option: .highlight, action: {
+                .anyButton(.highlight, action: {
 
                 })
                 .removeListRowFormatting()

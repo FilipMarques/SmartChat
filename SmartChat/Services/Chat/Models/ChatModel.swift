@@ -14,7 +14,13 @@ struct ChatModel: Identifiable {
     let dateCreated: Date
     let dateModified: Date
 
-    init(id: String, userId: String, avatarId: String, dateCreated: Date, dateModified: Date) {
+    init(
+        id: String,
+        userId: String,
+        avatarId: String,
+        dateCreated: Date,
+        dateModified: Date
+    ) {
         self.id = id
         self.userId = userId
         self.avatarId = avatarId
@@ -22,11 +28,11 @@ struct ChatModel: Identifiable {
         self.dateModified = dateModified
     }
 
-    static var mock: ChatModel {
+    static var mock: Self {
         mocks[0]
     }
 
-    static var mocks: [ChatModel] {
+    static var mocks: [Self] {
         [
             ChatModel(
                 id: "mock_chat_1",

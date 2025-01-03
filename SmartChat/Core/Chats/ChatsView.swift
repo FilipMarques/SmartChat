@@ -27,7 +27,7 @@ struct ChatsView: View {
                             return .mock
                         }
                     )
-                    .anyButton(option: .highlight, action: {
+                    .anyButton(.highlight, action: {
 
                     })
                     .removeListRowFormatting()

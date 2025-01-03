@@ -46,7 +46,7 @@ struct OnboardingCompletedView: View {
             }
         }
         .callToActionButton()
-        .anyButton(option: .press, action: {
+        .anyButton(.press, action: {
             onFinishButtonPressed()
         })
         .disabled(isCompletingProfileSetup)

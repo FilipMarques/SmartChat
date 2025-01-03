@@ -31,7 +31,7 @@ enum ButtonStyleOption {
 
 extension View {
     @ViewBuilder
-    func anyButton(option: ButtonStyleOption = .plain, action: @escaping () -> Void) -> some View {
+    func anyButton(_ option: ButtonStyleOption = .plain, action: @escaping () -> Void) -> some View {
         switch option {
         case .highlight:
             self.highLightButton(action: action)
@@ -76,21 +76,21 @@ extension View {
             .padding()
             .frame(maxWidth: .infinity)
             .tappableBackground()
-            .anyButton(option: .highlight, action: {
+            .anyButton(.highlight, action: {
 
             })
             .padding()
 
         Text("Tap me")
             .callToActionButton()
-            .anyButton(option: .press, action: {
+            .anyButton(.press, action: {
 
             })
             .padding()
 
         Text("Tap me")
             .callToActionButton()
-            .anyButton(option: .plain, action: {
+            .anyButton(.plain, action: {
 
             })
             .padding()
