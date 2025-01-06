@@ -20,7 +20,6 @@ struct OnboardingCompletedView: View {
             Text("Set up complete!")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                .frame(maxHeight: .infinity)
                 .foregroundStyle(selectedColor)
 
             Text("Set up your profile and you're ready to strat the chatting.")
@@ -30,26 +29,16 @@ struct OnboardingCompletedView: View {
         }
         .frame(maxHeight: .infinity)
         .safeAreaInset(edge: .bottom, content: {
-            ctaButton
+            AsyncCallToActionButton(
+                isLoading: isCompletingProfileSetup,
+                titleButton: "Finish",
+                action: {
+                    onFinishButtonPressed()
+                }
+            )
         })
         .padding(24)
         .toolbar(.hidden, for: .navigationBar)
-    }
-
-    private var ctaButton: some View {
-        ZStack {
-            if isCompletingProfileSetup {
-                ProgressView()
-                    .tint(.white)
-            } else {
-                Text("Finish")
-            }
-        }
-        .callToActionButton()
-        .anyButton(.press, action: {
-            onFinishButtonPressed()
-        })
-        .disabled(isCompletingProfileSetup)
     }
 
     func onFinishButtonPressed() {
