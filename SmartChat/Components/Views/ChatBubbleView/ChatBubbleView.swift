@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ChatBubbleView: View {
 
-    var text: String = "This is sample text"
+    var text: String = "This is a sample text"
     var textColor: Color = .primary
     var backGroundColor: Color = Color(uiColor: .systemGray6)
     var showImage: Bool = true
     var imageName: String?
 
-    let offset: CGFloat = 14
+    private let offset: CGFloat = 14
 
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
