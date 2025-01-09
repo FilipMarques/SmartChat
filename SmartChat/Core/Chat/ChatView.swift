@@ -14,11 +14,11 @@ struct ChatView: View {
     @State private var currentUser: UserModel? = .mock
     @State private var textFieldText: String = ""
 
-    @State private var showChatSettings: Bool = false
     @State private var scrollPosition: String?
 
     @State private var showAlert: AnyAppAlert?
     @State private var showChatSettings: AnyAppAlert?
+    @State private var showProfileModel: Bool = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -38,6 +38,11 @@ struct ChatView: View {
         }
         .showCustomAlert(type: .confirmationDialog, alert: $showChatSettings)
         .showCustomAlert(alert: $showAlert)
+        .showModal(showModal: $showProfileModel) {
+            if let avatar {
+                profileModal(avatar: avatar)
+            }
+        }
     }
 
     private var scrollViewSection: some View {
@@ -48,7 +53,8 @@ struct ChatView: View {
                     ChatBubbleViewBuilder(
                         message: message,
                         isCurrentUser: isCurrentUser,
-                        imageName: isCurrentUser ? nil : avatar?.profileImageName
+                        imageName: isCurrentUser ? nil : avatar?.profileImageName,
+                        onImagePressed: onAvatarImagePressed
                     )
                     .id(message.id)
                 }
@@ -90,6 +96,18 @@ struct ChatView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .background(Color(uiColor: .secondarySystemBackground))
+    }
+
+    private func profileModal(avatar: AvatarModel) -> some View {
+        ProfileModelView(
+            imageName: avatar.profileImageName,
+            title: avatar.name,
+            subtitle: avatar.characterOption?.rawValue.capitalized,
+            headline: avatar.characterDescription) {
+                showProfileModel = false
+            }
+            .padding(40)
+            .transition(.slide)
     }
 
     private func onSendMessagePressed() {
@@ -134,6 +152,10 @@ struct ChatView: View {
                 )
             }
         )
+    }
+
+    private func onAvatarImagePressed() {
+        showProfileModel = true
     }
 }
 
