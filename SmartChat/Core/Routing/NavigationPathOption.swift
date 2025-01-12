@@ -1,3 +1,12 @@
+//
+//  NavigationPathOption.swift
+//  SmartChat
+//
+//  Created by Filipe Camargo Marques on 12/01/25.
+//
+import SwiftUI
+import Foundation
+
 enum NavigationPathOption: Hashable {
     case chat(avatarId: String)
     case category(category: CharacterOption, imageName: String)
