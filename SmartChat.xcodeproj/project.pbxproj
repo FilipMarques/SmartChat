@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F381EAB2D373206002512E7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F381EAA2D373206002512E7 /* FirebaseAuth */; };
 		7F6103672D14A85600C811F6 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7F6103662D14A85600C811F6 /* SDWebImageSwiftUI */; };
+		7F6ACDDC2D3920C200891558 /* SignInAppleAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 7F6ACDDB2D3920C200891558 /* SignInAppleAsync */; };
 		7FB1BBB42D2AD45900E9EFE2 /* SwiftfulUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 7FB1BBB32D2AD45900E9EFE2 /* SwiftfulUtilities */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F6ACDDC2D3920C200891558 /* SignInAppleAsync in Frameworks */,
 				7F6103672D14A85600C811F6 /* SDWebImageSwiftUI in Frameworks */,
 				7F381EAB2D373206002512E7 /* FirebaseAuth in Frameworks */,
 				7FB1BBB42D2AD45900E9EFE2 /* SwiftfulUtilities in Frameworks */,
@@ -138,6 +140,7 @@
 				7F6103662D14A85600C811F6 /* SDWebImageSwiftUI */,
 				7FB1BBB32D2AD45900E9EFE2 /* SwiftfulUtilities */,
 				7F381EAA2D373206002512E7 /* FirebaseAuth */,
+				7F6ACDDB2D3920C200891558 /* SignInAppleAsync */,
 			);
 			productName = SmartChat;
 			productReference = 7F751C242D10D78000D648D2 /* SmartChat.app */;
@@ -225,6 +228,7 @@
 				7F6103652D14A85600C811F6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				7FB1BBB22D2AD45900E9EFE2 /* XCRemoteSwiftPackageReference "SwiftfulUtilities" */,
 				7F381EA92D373206002512E7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7F6ACDDA2D3920C200891558 /* XCRemoteSwiftPackageReference "SignInAppleAsync" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7F751C252D10D78000D648D2 /* Products */;
@@ -450,7 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SmartChat/Preview Content\"";
-				DEVELOPMENT_TEAM = 683A4RYZ77;
+				DEVELOPMENT_TEAM = Z84GGXTUGL;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -489,7 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SmartChat/Preview Content\"";
-				DEVELOPMENT_TEAM = 683A4RYZ77;
+				DEVELOPMENT_TEAM = Z84GGXTUGL;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -649,6 +653,14 @@
 				minimumVersion = 3.1.3;
 			};
 		};
+		7F6ACDDA2D3920C200891558 /* XCRemoteSwiftPackageReference "SignInAppleAsync" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SignInAppleAsync.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		7FB1BBB22D2AD45900E9EFE2 /* XCRemoteSwiftPackageReference "SwiftfulUtilities" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulUtilities.git";
@@ -669,6 +681,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F6103652D14A85600C811F6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		7F6ACDDB2D3920C200891558 /* SignInAppleAsync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F6ACDDA2D3920C200891558 /* XCRemoteSwiftPackageReference "SignInAppleAsync" */;
+			productName = SignInAppleAsync;
 		};
 		7FB1BBB32D2AD45900E9EFE2 /* SwiftfulUtilities */ = {
 			isa = XCSwiftPackageProductDependency;
