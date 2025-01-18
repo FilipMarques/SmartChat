@@ -178,11 +178,6 @@ struct SettingsView: View {
     }
 }
 
-#Preview {
-    SettingsView()
-        .environment(AppState())
-}
-
 fileprivate extension View {
     func rowFormatting() -> some View {
         self
@@ -191,4 +186,22 @@ fileprivate extension View {
             .padding(.horizontal, 16)
             .background(Color(uiColor: .systemBackground))
     }
+}
+
+#Preview("No Auth") {
+    SettingsView()
+        .environment(\.authService, MockAuthService(user: nil))
+        .environment(AppState())
+}
+
+#Preview("Anonymous") {
+    SettingsView()
+        .environment(\.authService, MockAuthService(user: UserAuthInfo.mock(isAnonymous: false)))
+        .environment(AppState())
+}
+
+#Preview("Not Anonymous") {
+    SettingsView()
+        .environment(\.authService, MockAuthService(user: UserAuthInfo.mock(isAnonymous: true)))
+        .environment(AppState())
 }
